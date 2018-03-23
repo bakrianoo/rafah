@@ -11,31 +11,31 @@ node --version
 ```
 npm --version
 ```
-![alt text](8.jpg)
+![alt text](https://raw.githubusercontent.com/bakrianoo/rafah/master/Documentation/demo_images/8.jpg)
 
 ## 2. Firebase Account
 * Go to [Firebase](https://firebase.google.com/) and login with your Google account.
 * Open your [Firebase Console](https://console.firebase.google.com/u/0/)
 * Create New Project
-![alt text](1.jpg)
+![alt text](https://raw.githubusercontent.com/bakrianoo/rafah/master/Documentation/demo_images/1.jpg)
 * Set **Project Name** and **Region** then click on **Create Project**
-![alt text](2.jpg)
+![alt text](https://raw.githubusercontent.com/bakrianoo/rafah/master/Documentation/demo_images/2.jpg)
 * Click **Continue**
-![alt text](3.jpg)
+![alt text](https://raw.githubusercontent.com/bakrianoo/rafah/master/Documentation/demo_images/3.jpg)
 * From the left sidebar select **Database**. Under **Cloud Firestore** Click on **Get Started**
-![alt text](4.jpg)
+![alt text](https://raw.githubusercontent.com/bakrianoo/rafah/master/Documentation/demo_images/4.jpg)
 * You will notified by a popup window. Select **Start in test mode** then click on **Enable** button
-![alt text](5.jpg)
+![alt text](https://raw.githubusercontent.com/bakrianoo/rafah/master/Documentation/demo_images/5.jpg)
 * From the left sidebar select **Project Overview**. Click on **Add Firebase to your web app**
-![alt text](6.jpg)
+![alt text](https://raw.githubusercontent.com/bakrianoo/rafah/master/Documentation/demo_images/6.jpg)
 * Copy just the configuration parameters which bordered with the orange rectangle.
-![alt text](7.jpg)
+![alt text](https://raw.githubusercontent.com/bakrianoo/rafah/master/Documentation/demo_images/7.jpg)
 
 
 ## Installation
 * Download **Rafah** project into a directory
 * Open "Rafah/src/firebase.js" and append the copied Firebase configuration parameters.
-![alt text](9.jpg)
+![alt text](https://raw.githubusercontent.com/bakrianoo/rafah/master/Documentation/demo_images/9.jpg)
 * Open your terminal/cmd and change the directory to your **Rafah** project directory
 ```
 cd rafah_path/
@@ -86,7 +86,7 @@ export default tweets;
 
 ```
 7. The following image demonstrates the above code with numerical section
-![alt text](10.jpg)
+![alt text](https://raw.githubusercontent.com/bakrianoo/rafah/master/Documentation/demo_images/10.jpg)
 
 > 1 . Import the JSON data
 > 2 . Configure the parameters as the following
@@ -106,7 +106,7 @@ import tweets from './projects/tweets/tweets';
 var projects = [ tweets ];
 export default projects;
 ```
-![alt text](11.jpg)
+![alt text](https://raw.githubusercontent.com/bakrianoo/rafah/master/Documentation/demo_images/11.jpg)
 
 ## Run
 1. Open your terminal/cmd and change to "rafah_path" directory
@@ -117,27 +117,27 @@ npm run dev
 3. Wait a moment then you will be redirected to the following URL
 > http://localhost:8080/#/dashboard
 4. Select your project from the left sidebar
-![alt text](12.jpg)
+![alt text](https://raw.githubusercontent.com/bakrianoo/rafah/master/Documentation/demo_images/12.jpg)
 5. By running the project for the first time. It will ask you to load the data to the **Firestore** database. Please click on **Start Loading** button.
-![alt text](13.jpg)
+![alt text](https://raw.githubusercontent.com/bakrianoo/rafah/master/Documentation/demo_images/13.jpg)
 6. It could take a while depending on your data size. Click on **Back to Project Page** to return the project page and start annotating.
-![alt text](14.jpg)
+![alt text](https://raw.githubusercontent.com/bakrianoo/rafah/master/Documentation/demo_images/14.jpg)
 
 ## Annotation
 1. By browsing the project page. You will find your records as the following design
-![alt text](15.jpg)
+![alt text](https://raw.githubusercontent.com/bakrianoo/rafah/master/Documentation/demo_images/15.jpg)
 2. You could assign the record category by selecting the appropriate one [or more as your configurations]
-![alt text](16.jpg)
+![alt text](https://raw.githubusercontent.com/bakrianoo/rafah/master/Documentation/demo_images/16.jpg)
 3. You could highlight a snippet and select an appropriate category by following the instructions
-![alt text](17.jpg)
+![alt text](https://raw.githubusercontent.com/bakrianoo/rafah/master/Documentation/demo_images/17.jpg)
 4. You could annotate the same snippet for another category
-![alt text](18.jpg)
+![alt text](https://raw.githubusercontent.com/bakrianoo/rafah/master/Documentation/demo_images/18.jpg)
 5. Click on **save** to save the annotations for the current record or **Save All**
-![alt text](19.jpg)
+![alt text](https://raw.githubusercontent.com/bakrianoo/rafah/master/Documentation/demo_images/19.jpg)
 
 ## Downloading Results
 1. Click on **Export Data** from the left sidebar to export the results of any project
-![alt text](20.jpg)
+![alt text](https://raw.githubusercontent.com/bakrianoo/rafah/master/Documentation/demo_images/20.jpg)
 
 ## Built With
 * [Vue](https://github.com/vuejs/vue)

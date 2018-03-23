@@ -3,7 +3,7 @@
 Meet Rafah. The lightweight annotation tool which designed to help NLP researchers and developers to annotate their corpuses and datasets easilly.
 
 ## Demo
-![alt text](demo.gif)
+![alt text](https://raw.githubusercontent.com/bakrianoo/rafah/master/Documentation/demo_images/demo.gif)
 
 ## Features
 * Single Page Application
@@ -15,7 +15,7 @@ Meet Rafah. The lightweight annotation tool which designed to help NLP researche
 * Internet connection status notification
 
 ## Documentation
-Please follow this documentation for [Install and Usage](http://any.com) instructions
+Please follow this documentation for [Install and Usage](https://github.com/bakrianoo/rafah/tree/master/Documentation) instructions
 
 ## Built With
 * [Vue](https://github.com/vuejs/vue)
