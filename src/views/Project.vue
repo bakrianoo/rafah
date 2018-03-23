@@ -42,7 +42,7 @@
       </div>
     </div>
 
-    <b-card v-for="rec in records" v-bind:class="{ 'text-left': project.direction == 'lrt',  'text-right': project.direction == 'rtl'  }">
+    <b-card v-for="rec in records" v-bind:class="{ 'text-left': project.direction == 'ltr',  'text-right': project.direction == 'rtl'  }">
       <b-form-group id="exampleInputGroup1"
 
                     label-for=""
@@ -56,21 +56,21 @@
       </b-form-group>
 
       <b-form-group label="Categories" v-if="project.categories.type == 'single'" v-bind:value="rec.data.category" v-model="rec.data.category">
-        <div v-bind:class="{ 'elem-left': project.direction == 'lrt',  'elem-right': project.direction == 'rtl'  }" v-for="(lbl,opt) in project.categories.options" >
+        <div v-bind:class="{ 'elem-left': project.direction == 'ltr',  'elem-right': project.direction == 'rtl'  }" v-for="(lbl,opt) in project.categories.options" >
             <label >{{lbl}}</label>
             <input @change="getSelectionText(rec)" type="radio" :value="opt" v-model="rec.data.category">
         </div>
       </b-form-group>
 
       <b-form-group label="Categories" v-else v-bind:value="rec.data.category" v-model="rec.data.category">
-        <div v-bind:class="{ 'elem-left': project.direction == 'lrt',  'elem-right': project.direction == 'rtl'  }"  v-for="(lbl,opt) in project.categories.options" >
+        <div v-bind:class="{ 'elem-left': project.direction == 'ltr',  'elem-right': project.direction == 'rtl'  }"  v-for="(lbl,opt) in project.categories.options" >
             <label >{{lbl}}</label>
             <input @change="getSelectionText(rec)" type="checkbox" :value="opt" v-model="rec.data.category">
         </div>
       </b-form-group>
 
       <b-form-group label="Highlighting" v-model="rec.data.highlight_category">
-        <div v-bind:class="{ 'elem-left': project.direction == 'lrt',  'elem-right': project.direction == 'rtl'  }"  v-for="(lbl,opt) in project.highlight_categories" >
+        <div v-bind:class="{ 'elem-left': project.direction == 'ltr',  'elem-right': project.direction == 'rtl'  }"  v-for="(lbl,opt) in project.highlight_categories" >
 
             <b-button @click="getSelectionText(rec, opt)" size="sm" variant="info">
                       {{lbl}}
@@ -80,7 +80,7 @@
       </b-form-group>
 
       <b-form-group label="Tags">
-        <div v-bind:class="{ 'elem-left': project.direction == 'lrt',  'elem-right': project.direction == 'rtl'  }" v-for="tag in rec.data.highlight_tags" >
+        <div v-bind:class="{ 'elem-left': project.direction == 'ltr',  'elem-right': project.direction == 'rtl'  }" v-for="tag in rec.data.highlight_tags" >
             <b-button  variant="primary">
               {{tag.text}}
               <b-badge class="badge-option" v-for="opt in tag.tags" variant="light">

@@ -1,9 +1,20 @@
 import data from "./data.json"
+
 var tweets = {
-  'project_name': 'Project 1',
+  'project_name': 'Tweets Project',
+  'direction': 'ltr',
   'data': data,
   'text_key': 'text',
-  'categories': {'sport': 'الرياضة', 'news': 'الأخبار'},
-  'highlight_categories': []
+  'per_page' : 25,
+  'categories': {
+                'type':'single',
+                'options':{'pos': 'Positive', 'neg': 'Negative', 'neu':'Neutral'}
+              },
+  'highlight_categories': {
+                          'loc': 'Location',
+                          'org': 'Organization',
+                          'per':'Person'
+                        },
 }
+
 export default tweets;

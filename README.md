@@ -1,30 +1,23 @@
-# core-ui
+# RAFAH | The LOST NLP Annotation Tool
 
-> Open Source Admin Template
+Meet Rafah. The lightweight annotation tool which designed to help NLP researchers and developers to annotate their corpuses and datasets easilly.
 
-## Build Setup
+## Demo
+![alt text](demo.gif)
 
-``` bash
-# install dependencies
-npm install
+## Features
+* Single Page Application
+* Multiple projects
+* Firebase Integration. Your data always on the cloud
+* Information extraction tagger system
+* Annotate single or multiple labels for each dataset record
+* Data importing/exporting
+* Internet connection status notification
 
-# serve with hot reload at localhost:8080
-npm run dev
+## Documentation
+Please follow this documentation for [Install and Usage](http://any.com) instructions
 
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## Built With
+* [Vue](https://github.com/vuejs/vue)
+* [Firebase](https://firebase.google.com/)
+* [coreUI](https://github.com/mrholek/CoreUI-Vue)
