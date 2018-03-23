@@ -1,5 +1,8 @@
 # RAFAH | The LOST NLP Annotation Tool
 
+![alt text](https://raw.githubusercontent.com/bakrianoo/rafah/static/img/banner.jpg)
+
+
 Meet Rafah. The lightweight annotation tool which designed to help NLP researchers and developers to annotate their corpuses and datasets easilly.
 
 ## Demo
