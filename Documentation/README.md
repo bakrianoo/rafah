@@ -116,6 +116,7 @@ export default tweets;
 > 1 . Import the JSON data
 
 > 2 . Configure the parameters as the following
+
 | Parameter        | Description |
 | ---------------- |:----------------------:|
 | project_name     | The project name |
