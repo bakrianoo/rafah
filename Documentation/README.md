@@ -17,13 +17,21 @@ npm --version
 * Go to [Firebase](https://firebase.google.com/) and login with your Google account.
 * Open your [Firebase Console](https://console.firebase.google.com/u/0/)
 * Create New Project
+
 ![alt text](https://raw.githubusercontent.com/bakrianoo/rafah/master/Documentation/demo_images/1.jpg)
+
 * Set **Project Name** and **Region** then click on **Create Project**
+
 ![alt text](https://raw.githubusercontent.com/bakrianoo/rafah/master/Documentation/demo_images/2.jpg)
+
 * Click **Continue**
+
 ![alt text](https://raw.githubusercontent.com/bakrianoo/rafah/master/Documentation/demo_images/3.jpg)
+
 * From the left sidebar select **Database**. Under **Cloud Firestore** Click on **Get Started**
+
 ![alt text](https://raw.githubusercontent.com/bakrianoo/rafah/master/Documentation/demo_images/4.jpg)
+
 * You will notified by a popup window. Select **Start in test mode** then click on **Enable** button
 ![alt text](https://raw.githubusercontent.com/bakrianoo/rafah/master/Documentation/demo_images/5.jpg)
 * From the left sidebar select **Project Overview**. Click on **Add Firebase to your web app**
