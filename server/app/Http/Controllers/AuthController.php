@@ -13,6 +13,10 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
+    public function is_login(Request $request){
+        
+    }
+
     public function redirectToProvider($provider) {
         $validated = $this->validateProvider($provider);
         if (!is_null($validated)) {
