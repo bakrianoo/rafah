@@ -31,17 +31,17 @@ return [
     'github' => [
         'client_id' => env('GITHUB_CLIENT_ID'),
         'client_secret' => env('GITHUB_CLIENT_SECRET'),
-        'redirect' => '/api/login/github/callback',
+        'redirect' => 'https://rafah-dev.ngrok.io/api/login/github/callback',
     ],
     'facebook' => [
         'client_id' => env('FACEBOOK_CLIENT_ID'),
         'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
-        'redirect' => '/api/login/facebook/callback',
+        'redirect' => '',//url('/api/login/facebook/callback'),
     ],
     'google' => [
         'client_id' => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-        'redirect' => '/api/login/google/callback',
+        'redirect' => '',//url('/api/login/google/callback'),
     ],
 
 ];

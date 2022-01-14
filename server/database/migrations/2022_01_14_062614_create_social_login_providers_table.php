@@ -19,12 +19,13 @@ class CreateSocialLoginProvidersTable extends Migration
             $table->string('social_provider_uuid');
             $table->bigInteger('social_provider_user_id')->unsigned();
             $table->string('social_provider_avatar')->nullable();
+            $table->json('social_provider_meta')->nullable();
             $table->timestamps();
 
-            $table->foreign('social_provider_user_id')
-                  ->references('user_id')
-                  ->on('users')
-                  ->onDelete('cascade');
+            // $table->foreign('social_provider_user_id')
+            //       ->references('id')
+            //       ->on('users')
+            //       ->onDelete('cascade');
         });
     }
 
