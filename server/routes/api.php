@@ -20,8 +20,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 //Public routes
-Route::get('/login/{provider}', [AuthController::class,'redirectToProvider']);
-Route::get('/login/{provider}/callback', [AuthController::class,'handleProviderCallback']);
+Route::middleware(['cors'])->group(function () {
+    Route::any('/login/{provider}', [AuthController::class,'redirectToProvider']);
+    Route::any('/login/{provider}/callback', [AuthController::class,'handleProviderCallback']);
+});
 
 Route::post('/register', [AuthController::class,'register']);
 Route::post('/login', [AuthController::class,'login']);

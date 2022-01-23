@@ -9,6 +9,7 @@ use GuzzleHttp\Exception\ClientException;
 use Illuminate\Http\JsonResponse;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 
 class AuthController extends Controller
@@ -23,11 +24,15 @@ class AuthController extends Controller
             return $validated;
         }
 
-        return Socialite::driver($provider)->stateless()->redirect();
+        return response()->json([
+            'url' => Socialite::driver($provider)->stateless()->redirect()->getTargetUrl(),
+        ]);
     }
 
     public function handleProviderCallback($provider) {
+        
         $validated = $this->validateProvider($provider);
+
         if (!is_null($validated)) {
             return $validated;
         }
@@ -59,9 +64,21 @@ class AuthController extends Controller
                 'social_provider_avatar' => $user->getAvatar()
             ]
         );
-        $token = $userCreated->createToken('token-name')->plainTextToken;
-        return response()->json(['Access-Token' => $token]);
-        return response()->json($userCreated, 200, ['Access-Token' => $token]);
+
+        // Login the created user
+        Auth::login($userCreated, true);
+
+        $token = Auth::user()->createToken('token-name')->plainTextToken;
+        $name = Auth::user()->name;
+
+        // Create new view (I use callback.blade.php), and send the token and the name.
+        return view('login_callback', [
+            'name' => $name,
+            'token' => $token,
+        ]);
+
+        // return response()->json(['Access-Token' => $token]);
+        // return response()->json($userCreated, 200, ['Access-Token' => $token]);
     }
 
     protected function validateProvider($provider) {
@@ -112,6 +129,7 @@ class AuthController extends Controller
         }
 
         $token = $user->createToken('myapptoken')->plainTextToken;
+        $name = Auth::user()->name;
 
         $response = [
             'user'=>$user,

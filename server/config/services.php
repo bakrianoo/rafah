@@ -31,7 +31,7 @@ return [
     'github' => [
         'client_id' => env('GITHUB_CLIENT_ID'),
         'client_secret' => env('GITHUB_CLIENT_SECRET'),
-        'redirect' => 'https://rafah-dev.ngrok.io/api/login/github/callback',
+        'redirect' => 'https://rafah-dev.ngrok.io/rafah/server/public/api/login/github/callback',
     ],
     'facebook' => [
         'client_id' => env('FACEBOOK_CLIENT_ID'),

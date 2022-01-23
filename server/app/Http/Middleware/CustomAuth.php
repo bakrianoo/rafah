@@ -34,5 +34,7 @@ class CustomAuth
             'success' => false,
             'error' => 'Access denied.',
         ]);
+
+        // return $next($request);
     }
 }
