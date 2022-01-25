@@ -16,6 +16,8 @@
                     <CFormInput
                       placeholder="Username"
                       autocomplete="username"
+                      :value="formData.email"
+                      @input="formData.email = $event.target.value"
                     />
                   </CInputGroup>
                   <CInputGroup class="mb-4">
@@ -26,11 +28,13 @@
                       type="password"
                       placeholder="Password"
                       autocomplete="current-password"
+                      :value="formData.password"
+                      @input="formData.password = $event.target.value"
                     />
                   </CInputGroup>
                   <CRow>
                     <CCol :xs="6">
-                      <CButton color="primary" class="px-4"> Login </CButton>
+                      <CButton @click="login()" color="primary" class="px-4"> Login </CButton>
                     </CCol>
                     <CCol :xs="6" class="text-right">
                       <CButton color="link" class="px-0">
@@ -66,5 +70,30 @@
 <script>
 export default {
   name: 'Login',
+  data(){
+    return {
+      formData: {
+        email: '',
+        password: '',
+        device_name: 'browser',
+      },
+      errors: {}
+    }
+  },
+  methods: {
+    login(){
+      window.axios.post('/api/login', this.formData).then((response)=>{
+        this.$store.commit({
+          type: 'updateToken',
+          value: response.data.token,
+        })
+        localStorage.setItem('token', response.data.token);
+        
+        this.$router.push('/');
+      }).catch((errors)=>{
+        console.log(errors);
+      })
+    },
+  }
 }
 </script>

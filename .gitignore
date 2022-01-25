@@ -6,6 +6,7 @@ tests/e2e/reports/
 # local env files
 .env.local
 .env.*.local
+src/env.config.js
 
 # OS or Editor folders
 ._*

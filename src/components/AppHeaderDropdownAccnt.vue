@@ -5,7 +5,7 @@
     </CDropdownToggle>
     <CDropdownMenu class="pt-0">
       <CDropdownHeader component="h6" class="bg-light fw-semibold py-2">
-        Account
+        {{$store.state.user.name}}
       </CDropdownHeader>
       <CDropdownItem>
         <CIcon icon="cil-bell" /> Updates
@@ -40,7 +40,7 @@
       <CDropdownItem>
         <CIcon icon="cil-shield-alt" /> Lock Account
       </CDropdownItem>
-      <CDropdownItem> <CIcon icon="cil-lock-locked" /> Logout </CDropdownItem>
+      <CDropdownItem @click="logout"> <CIcon icon="cil-lock-locked" /> Logout </CDropdownItem>
     </CDropdownMenu>
   </CDropdown>
 </template>
@@ -55,5 +55,13 @@ export default {
       itemsCount: 42,
     }
   },
+  methods: {
+    logout(){
+      localStorage.removeItem('token');
+      window.axios.get('/api/logout').then((response) => {
+        this.$router.push('/login');
+      })
+    }
+  }
 }
 </script>
