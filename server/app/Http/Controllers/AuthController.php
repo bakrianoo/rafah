@@ -29,7 +29,7 @@ class AuthController extends Controller
         ]);
     }
 
-    public function handleProviderCallback($provider) {
+    public function handleProviderCallback(Request $request, $provider) {
         
         $validated = $this->validateProvider($provider);
 
@@ -68,7 +68,7 @@ class AuthController extends Controller
         // Login the created user
         Auth::login($userCreated, true);
 
-        $token = Auth::user()->createToken('token-name')->plainTextToken;
+        $token = Auth::user()->createToken(env('SCANTUM_TOKEN','rafah'))->plainTextToken;
         $name = Auth::user()->name;
 
         // Create new view (I use callback.blade.php), and send the token and the name.
@@ -100,7 +100,7 @@ class AuthController extends Controller
             'password' => bcrypt( $fields['password'] ),
         ]);
 
-        $token = $user->createToken('myapptoken')->plainTextToken;
+        $token = $user->createToken($request->device_name)->plainTextToken;
 
         $response = [
             'user' => $user,
@@ -147,5 +147,9 @@ class AuthController extends Controller
         ];
 
         return response($response,201);
+    }
+
+    public function get_user(Request $request) {
+        return response()->json(['user' => Auth::user()]);
     }
 }

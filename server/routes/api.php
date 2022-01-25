@@ -15,14 +15,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
 
 //Public routes
 Route::middleware(['cors'])->group(function () {
     Route::any('/login/{provider}', [AuthController::class,'redirectToProvider']);
     Route::any('/login/{provider}/callback', [AuthController::class,'handleProviderCallback']);
+    Route::get('/user', [AuthController::class,'get_user']);
+
+    Route::post('/tokens/create', function (Request $request) {
+        $token = "";
+    
+        if($request->user()){
+            $token = $request->user()->createToken($request->token_name);
+            $token = $token->plainTextToken;
+    
+            return response()->json(['token' => $token, 'status' => true],
+                                    200,
+                                    ['Access-Token' => $token]);
+        }
+        
+        return ['status' => false];
+    });
 });
 
 Route::post('/register', [AuthController::class,'register']);
