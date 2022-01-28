@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use Laravel\Socialite\Facades\Socialite;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('register', [AuthController::class,'register']);
 Route::any('login', [AuthController::class,'login']);
 Route::middleware('auth:sanctum')->get('/logout', [AuthController::class,'logout']);
+
+Route::post('/auth/redirect/{provider}', [AuthController::class,'social_redirect']);
+Route::get('auth/callback/{provider}', [AuthController::class,'social_login']);

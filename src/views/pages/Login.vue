@@ -35,6 +35,7 @@
                   <CRow>
                     <CCol :xs="6">
                       <CButton @click="login()" color="primary" class="px-4"> Login </CButton>
+                      <CButton @click="social_login('github')" color="primary" class="px-4"> Github </CButton>
                     </CCol>
                     <CCol :xs="6" class="text-right">
                       <CButton color="link" class="px-0">
@@ -94,6 +95,62 @@ export default {
         console.log(errors);
       })
     },
-  }
+    async social_login(provider){
+      const newWindow = openWindow('', 'message')
+      
+      window.axios.post(`/api/auth/redirect/${provider}`)
+      .then(response => {
+          newWindow.location.href = response.data.url;
+      })
+      .catch(function (error) {
+          console.error(error);
+      });
+    },
+    // This method save the new token and username
+    onMessage (e) {
+        if (e.origin !== window.origin || !e.data.token) {
+            return
+        }
+
+        localStorage.setItem('token',e.data.token)
+
+        this.$store.commit({
+          type: 'updateToken',
+          value: e.data.token,
+        })
+
+        this.$router.push('/');
+    },
+  },
+  // Waiting for the login_callback.blade.php message... (token and username).
+  mounted () {
+      window.addEventListener('message', this.onMessage, false)
+  },
+  beforeDestroy () {
+    window.removeEventListener('message', this.onMessage)
+  },
+}
+
+function openWindow (url, title, options = {}) {
+    if (typeof url === 'object') {
+        options = url
+        url = ''
+    }
+    options = { url, title, width: 600, height: 720, ...options }
+    const dualScreenLeft = window.screenLeft !== undefined ? window.screenLeft : window.screen.left
+    const dualScreenTop = window.screenTop !== undefined ? window.screenTop : window.screen.top
+    const width = window.innerWidth || document.documentElement.clientWidth || window.screen.width
+    const height = window.innerHeight || document.documentElement.clientHeight || window.screen.height
+    options.left = ((width / 2) - (options.width / 2)) + dualScreenLeft
+    options.top = ((height / 2) - (options.height / 2)) + dualScreenTop
+    const optionsStr = Object.keys(options).reduce((acc, key) => {
+        acc.push(`${key}=${options[key]}`)
+    return acc
+    }, []).join(',')
+    const newWindow = window.open(url, title, optionsStr)
+    if (window.focus) {
+        newWindow.focus()
+    }
+    return newWindow
 }
 </script>
