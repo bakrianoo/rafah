@@ -12,13 +12,18 @@ export default [
   {
     component: 'CNavGroup',
     name: 'Projects',
-    to: '/projects/list',
     icon: 'cil-puzzle',
     items: [
       {
         component: 'CNavItem',
-        name: 'new',
+        name: 'list',
         to: '/projects/list',
+        icon: 'cil-puzzle',
+      },
+      {
+        component: 'CNavItem',
+        name: 'new',
+        to: '/projects/new',
         icon: 'cil-puzzle',
       },
     ],

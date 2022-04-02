@@ -1,0 +1,3 @@
+<template>
+  <CRow></CRow>
+</template>
